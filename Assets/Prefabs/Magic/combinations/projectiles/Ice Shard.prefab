@@ -49,6 +49,8 @@ MonoBehaviour:
   moveSpeed: 1000
   lifeTime: 10
   proyectileDamage: 2
+  iceSurfacePrefab: {fileID: 7223887968191547298, guid: 070f57849816fe840a39b061102d06dd,
+    type: 3}
 --- !u!54 &4088681614579137825
 Rigidbody:
   m_ObjectHideFlags: 0

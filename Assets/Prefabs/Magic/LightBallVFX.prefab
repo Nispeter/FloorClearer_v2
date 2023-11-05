@@ -124,7 +124,7 @@ MonoBehaviour:
   ballNumber: 1
   elementType: 0
   _spacing: 0.3
-  lerpSpeed: 8
+  lerpSpeed: 12
   floatAmplitude: 0.05
   floatFrequency: 1
 --- !u!2083052967 &6780185362107775334

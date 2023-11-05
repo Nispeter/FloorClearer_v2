@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using PixelCrushers.DialogueSystem.Wrappers;
 
-public class INPC : MonoBehaviour, IInteractable
+public class INPC : MonoBehaviour, IInteractable, IEntity
 {
     public string interactHint { get; set; }
 
@@ -23,6 +23,11 @@ public class INPC : MonoBehaviour, IInteractable
     private void Start()
     {
         interactHint = "Speak";
+    }
+
+    public void ModifyMovementSpeed(float modifier)
+    {
+        Debug.Log("Slowed");
     }
 
     public void Interact()

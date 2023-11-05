@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Enemy : MonoBehaviour, IHealth
+public abstract class Enemy : MonoBehaviour, IHealth, IEntity
 {
     [SerializeField] protected float _health;
     [SerializeField] protected float _remainingHealth;
@@ -18,6 +18,11 @@ public abstract class Enemy : MonoBehaviour, IHealth
     {
         get => _remainingHealth;
         set => _remainingHealth = value;
+    }
+
+    public void ModifyMovementSpeed(float modifier)
+    {
+        Debug.Log("Slowed");
     }
 
     public virtual void TakeDamage(float damage)
