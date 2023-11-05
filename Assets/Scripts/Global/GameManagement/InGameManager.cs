@@ -44,7 +44,7 @@ public class InGameManager : MonoBehaviour
 
         _instance = this;
         ActivateGameUI();
-        LockCursor();
+        inputController.LockCursor();
     }
 
     public GameObject gameUI;
@@ -79,14 +79,14 @@ public class InGameManager : MonoBehaviour
     {
         DeactivateGameUI();
         PauseGame();
-        UnlockCursor();
+        inputController.UnlockCursor();
     }
 
     public void ExitPauseScreen()
     {
         ActivateGameUI();
         ResumeGame();
-        LockCursor();
+        inputController.LockCursor();
     }
 
     public void ExitGame()
@@ -108,18 +108,6 @@ public class InGameManager : MonoBehaviour
         pixelFilter.SetActive(false);
         gameUI.SetActive(false);
         pauseScreen.SetActive(true);
-    }
-
-    private void LockCursor()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
-
-    private void UnlockCursor()
-    {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
     }
 
 }

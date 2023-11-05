@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IceShard : Projectile
+public class IceShard : PlayerProjectile
 {
     private Rigidbody rb;
     private Vector3 moveDirection;
 
-    public void Setup(Transform cam, float damage){
+    public void Setup(Transform cam, float damage)
+    {
         transform.rotation = cam.rotation;
         rb = GetComponent<Rigidbody>();
         moveSpeed = 10f;
@@ -19,14 +20,21 @@ public class IceShard : Projectile
         // float angle = Mathf.Atan2(moveDirection.y, moveDirection.x);
         // transform.rotation = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg);
     }
-    private void OnTriggerEnter(Collider collision)
+    public override void OnTriggerEnter(Collider collision)
     {
-        if(collision.gameObject.tag != "Player" && collision.gameObject.tag != "Projectile"){
+        if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "Projectile")
+        {
             rb.velocity = Vector3.zero;
             rb.isKinematic = true;
             Destroy(gameObject, lifeTime);
         }
-        
-        // Optionally, add code here to handle other collision-related behavior
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(proyectileDamage);
+            }
+        }
     }
 }

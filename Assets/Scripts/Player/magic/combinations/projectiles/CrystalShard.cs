@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class CrystalShard : MonoBehaviour
+public class CrystalShard : PlayerProjectile
 {
     public float projectileSpeed = 20f; // Increased speed for rapid movement.
     public float randomDeviation = 0.1f; // The amount of random deviation in the projectile direction.
@@ -29,11 +29,4 @@ public class CrystalShard : MonoBehaviour
         rb.AddForce(randomizedDirection * projectileSpeed, ForceMode.Impulse);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        // Here you can add any condition, for example, if you want to ignore certain tags.
-        // if(other.CompareTag("SomeTag")) return;
-
-        Destroy(gameObject); // Destroy the shard upon triggering an event.
-    }
 }

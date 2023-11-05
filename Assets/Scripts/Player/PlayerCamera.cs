@@ -8,6 +8,7 @@ public class PlayerCamera : MonoBehaviour
     private Transform player;
     public float sensX;
     public float sensY;
+    public bool isDialogueActive  {get; set;}
 
     private float xRotation = 0f;
     private float yRotation = 0f;
@@ -20,6 +21,7 @@ public class PlayerCamera : MonoBehaviour
 
     private void Start()
     {
+        isDialogueActive = false;
         player = transform.root;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -31,11 +33,11 @@ public class PlayerCamera : MonoBehaviour
     {
         HandleShake();
         HandleInput();
-
     }
 
     private void HandleInput()
     {
+        if(isDialogueActive)return;
         float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * sensX;
         float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * sensY;
 

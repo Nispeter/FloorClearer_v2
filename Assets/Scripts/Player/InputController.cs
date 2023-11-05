@@ -6,7 +6,11 @@ public class InputController : MonoBehaviour
     private FirstPersonMovement playerMovement;
     private PlayerSpellCasting playerSpellCasting;
     private PlayerInteract playerInteract;
+    private PlayerCamera playerCamController;
     private bool isCombatMode;
+
+    private bool inputEnabled = true;
+    private bool onlyPauseEnabled = false;
 
     void Start()
     {
@@ -18,27 +22,35 @@ public class InputController : MonoBehaviour
         {
             isCombatMode = true;
         }
+        playerCamController = GetComponentInChildren<PlayerCamera>();
         playerMovement = GetComponent<FirstPersonMovement>();
         playerSpellCasting = GetComponent<PlayerSpellCasting>();
         playerInteract = GetComponent<PlayerInteract>();
         InGameManager.Instance.ResumeGame();
     }
 
-    private bool inputEnabled = true;
-    private bool onlyPauseEnabled = false;
-
-    // Method to deactivate all input except for pause
     public void DeactivateAllExceptPause()
     {
         inputEnabled = false;
         onlyPauseEnabled = true;
     }
 
-    // Method to reactivate all input
     public void ReactivateAllInput()
     {
         inputEnabled = true;
         onlyPauseEnabled = false;
+    }
+
+    public void DialogueMode(){
+        DeactivateAllExceptPause();
+        playerCamController.isDialogueActive = true;
+        UnlockCursor();
+    }
+
+    public void DialogueModeExit(){
+        ReactivateAllInput();
+        playerCamController.isDialogueActive = false;
+        LockCursor();
     }
 
     private void Update()
@@ -79,12 +91,10 @@ public class InputController : MonoBehaviour
             if (!InGameManager.Instance.timeManager.isGamePaused)
             {
                 InGameManager.Instance.OpenPauseScreen();
-
             }
             else
             {
                 InGameManager.Instance.ExitPauseScreen();
-
             }
         }
     }
@@ -133,6 +143,18 @@ public class InputController : MonoBehaviour
         }
 
         return KeyCode.None;
+    }
+
+    public void LockCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public void UnlockCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
 }
