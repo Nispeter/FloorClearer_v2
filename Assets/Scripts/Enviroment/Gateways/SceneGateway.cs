@@ -7,6 +7,6 @@ public class SceneGateway : Gateway
 
     public override void Transfer(GameObject player)
     {
-        SceneManager.LoadScene(targetSceneName);
+        CustomSceneManager.Instance.LoadCustomLevel(targetSceneName);
     }
 }

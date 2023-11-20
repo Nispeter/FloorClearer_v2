@@ -1511,6 +1511,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 200720305}
     m_Modifications:
+    - target: {fileID: 1949394442764062822, guid: 9f40890b4dbfb34499e14c4d56902923,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1949394442764062822, guid: 9f40890b4dbfb34499e14c4d56902923,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1949394442764062822, guid: 9f40890b4dbfb34499e14c4d56902923,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -145
+      objectReference: {fileID: 0}
+    - target: {fileID: 1949394442764062822, guid: 9f40890b4dbfb34499e14c4d56902923,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 3066949762541114900, guid: 9f40890b4dbfb34499e14c4d56902923,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1772,7 +1792,7 @@ PrefabInstance:
     - target: {fileID: 5547727151987522888, guid: cd43ead2f67392f488354f42cd8fbcdb,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayGame
+      value: LoadHUB
       objectReference: {fileID: 0}
     - target: {fileID: 5547727151987522888, guid: cd43ead2f67392f488354f42cd8fbcdb,
         type: 3}

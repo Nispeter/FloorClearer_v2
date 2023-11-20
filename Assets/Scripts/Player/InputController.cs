@@ -26,7 +26,6 @@ public class InputController : MonoBehaviour
         playerMovement = GetComponent<FirstPersonMovement>();
         playerSpellCasting = GetComponent<PlayerSpellCasting>();
         playerInteract = GetComponent<PlayerInteract>();
-        InGameManager.Instance.ResumeGame();
     }
 
     public void DeactivateAllExceptPause()

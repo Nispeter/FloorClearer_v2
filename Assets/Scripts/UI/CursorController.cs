@@ -44,8 +44,6 @@ public class CursorController : MonoBehaviour
     uiHintController.HideHint();
 }
 
-
-
     public void UpdateCrosshair(Sprite crosshairSprite)
     {
         crosshairImage.sprite = crosshairSprite;

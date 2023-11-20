@@ -1,10 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class MMButtonManager : MonoBehaviour
+public class MainMenuManager : ScreenManager
 {
     public GameObject mainMenu;
     public GameObject settings;
-    public CustomSceneManager sceneManager; 
+    public CustomSceneManager sceneManager;
 
     private void Start()
     {
@@ -47,10 +49,10 @@ public class MMButtonManager : MonoBehaviour
 
     public void ExitGame()
     {
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
+        #else
+            Application.Quit();
+        #endif
     }
 }
