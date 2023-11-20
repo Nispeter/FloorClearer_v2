@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8119541524164535997}
   - component: {fileID: 3610850891179702690}
-  - component: {fileID: 8161283535487817558}
+  - component: {fileID: 5183261056174342039}
   m_Layer: 0
   m_Name: InGameManager
   m_TagString: Untagged
@@ -53,7 +53,7 @@ MonoBehaviour:
   pointCounter: {fileID: 0}
   timeManager: {fileID: 0}
   inputController: {fileID: 0}
---- !u!114 &8161283535487817558
+--- !u!114 &5183261056174342039
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3563460580934155351}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba888eae536fac743bdaf69924cd1a2c, type: 3}
+  m_Script: {fileID: 11500000, guid: 6bd8e6f4b3a4082499d0d267f87728ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pauseManager: {fileID: 0}

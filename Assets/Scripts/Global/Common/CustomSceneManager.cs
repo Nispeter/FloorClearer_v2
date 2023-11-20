@@ -96,4 +96,17 @@ public class CustomSceneManager : MonoBehaviour
         if (loadingScreen)
             loadingScreen.SetActive(false);
     }
+
+    public void QuitGame()
+    {
+        Debug.Log("Quitting game...");
+
+        #if UNITY_EDITOR
+            // If we're running in the Unity editor
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            // If we're running in a build version
+            Application.Quit();
+        #endif
+    }
 }
