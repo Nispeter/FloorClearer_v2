@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8119541524164535997}
   - component: {fileID: 3610850891179702690}
   - component: {fileID: 5183261056174342039}
+  - component: {fileID: 3142652066122298249}
   m_Layer: 0
   m_Name: InGameManager
   m_TagString: Untagged
@@ -51,7 +52,7 @@ MonoBehaviour:
   spellUI: {fileID: 0}
   healthBar: {fileID: 0}
   pointCounter: {fileID: 0}
-  timeManager: {fileID: 0}
+  timeManager: {fileID: 3142652066122298249}
   inputController: {fileID: 0}
 --- !u!114 &5183261056174342039
 MonoBehaviour:
@@ -67,3 +68,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseManager: {fileID: 0}
   settingsManager: {fileID: 0}
+--- !u!114 &3142652066122298249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3563460580934155351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20c62369befd10e4c9f81a9082c178a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGamePaused: 0
+  gameTime: 300
+  timeText: {fileID: 0}

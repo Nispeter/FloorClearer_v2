@@ -12,12 +12,15 @@ public class FirstPersonMovement : MonoBehaviour
     public float gravity = -9.81f;
     public float groundRayLength = 0.2f;
     public int airJumps = 1;
-    public Transform cameraTransform;
 
+    public Transform cameraTransform;
     private CharacterController controller;
+
     private Vector3 velocity;
     private float _defaultSpeed;
     private int _jumpsRemainig;
+    public float maxYSpeed;
+    public bool dashing;
 
     private void Start()
     {

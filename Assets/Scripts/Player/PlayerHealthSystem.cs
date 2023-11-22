@@ -31,6 +31,6 @@ public class PlayerHealthSystem : MonoBehaviour, IHealth
     }
     public void Die()
     {
-
+        InGameManager.Instance.GameOver();
     }
 }

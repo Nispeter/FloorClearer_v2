@@ -49,6 +49,25 @@ public class InGameManager : MonoBehaviour
         timeManager.Resume();
     }
 
+    private bool isGameOver = false;
+
+    public void TimeUp()
+    {
+        if (!isGameOver)
+        {
+            GameOver();
+        }
+    }
+
+    public void GameOver()
+    {
+        isGameOver = true;
+        timeManager.Pause();
+        DeactivateGameUI();
+        CustomSceneManager.Instance.LoadHUB();
+    }
+
+
     public void OpenPauseScreen()
     {
         inputController.UnlockCursor();
