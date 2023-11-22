@@ -7,8 +7,10 @@ public class InputController : MonoBehaviour
     private PlayerSpellCasting playerSpellCasting;
     private PlayerInteract playerInteract;
     private PlayerCamera playerCamController;
+    private Dashing dashingController;
     private bool isCombatMode;
 
+    private bool isMovementBoosted = false;
     private bool inputEnabled = true;
     private bool onlyPauseEnabled = false;
 
@@ -22,10 +24,21 @@ public class InputController : MonoBehaviour
         {
             isCombatMode = true;
         }
+        dashingController= GetComponent<Dashing>();
         playerCamController = GetComponentInChildren<PlayerCamera>();
         playerMovement = GetComponent<FirstPersonMovement>();
         playerSpellCasting = GetComponent<PlayerSpellCasting>();
         playerInteract = GetComponent<PlayerInteract>();
+    }
+
+    public void ActivateBoost(){
+        playerMovement.airJumps++;
+        isMovementBoosted = true;
+    }
+
+    public void DeactivateBoost(){
+        playerMovement.airJumps--;
+        isMovementBoosted = false;
     }
 
     public void DeactivateAllExceptPause()
@@ -81,6 +94,14 @@ public class InputController : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             playerMovement.HandleJump();
+        }
+        if (Input.GetKeyDown(KeyCode.X) && isMovementBoosted)
+        {
+            dashingController.StartDash();
+        }
+        if (dashingController.isDashing)
+        {
+            dashingController.ContinueDash();
         }
     }
 

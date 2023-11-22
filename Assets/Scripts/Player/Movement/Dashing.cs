@@ -4,93 +4,44 @@ using UnityEngine;
 
 public class Dashing : MonoBehaviour
 {
-    [Header("References")]
-    public Transform orientation;
-    public Transform playerCam;
-    private CharacterController characterController;
-    private FirstPersonMovement fpm;
-
-    [Header("Dashing")]
-    public float dashSpeed;
-    public float dashDuration;
-
-    [Header("Settings")]
-    public bool useCameraForward = true;
-    public bool allowAllDirections = true;
-
-    [Header("Cooldown")]
-    public float dashCd;
-    private float dashCdTimer;
-
-    [Header("Input")]
-    public KeyCode dashKey = KeyCode.E;
+    [Header("movement")]
+    public CharacterController controller;
+    public float dashDistance = 5f;
+    public float dashSpeed = 20f;
+    public float dashTime = 0.2f;
+    public Camera playerCamera;
+    public float normalFOV = 60f;      // Normal field of view
+    public float dashFOV = 80f;        // Increased field of view during dash
 
     private Vector3 dashDirection;
-    private bool isDashing = false;
-    private float currentDashTime = 0;
+    public bool isDashing;
+    private float dashStartTime;
 
-    private void Start()
+    public void StartDash()
     {
-        characterController = GetComponent<CharacterController>();
-        fpm = GetComponent<FirstPersonMovement>();
-    }
+        if (isDashing) return; // Prevent restarting dash if already dashing
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(dashKey) && dashCdTimer <= 0)
-        {
-            StartDash();
-        }
-
-        if (isDashing)
-        {
-            Dash();
-        }
-
-        if (dashCdTimer > 0)
-            dashCdTimer -= Time.deltaTime;
-    }
-
-    private void StartDash()
-    {
-        dashCdTimer = dashCd;
-        fpm.dashing = true;
-
-        Transform forwardT = useCameraForward ? playerCam : orientation;
-        dashDirection = GetDirection(forwardT) * dashSpeed;
-        currentDashTime = dashDuration;
         isDashing = true;
+        dashDirection = transform.forward; // Dash in the direction the player is facing
+        dashStartTime = Time.time;
+        playerCamera.fieldOfView = dashFOV; // Increase FOV
     }
 
-    private void Dash()
+    public void ContinueDash()
     {
-        if (currentDashTime > 0)
+        if (Time.time < dashStartTime + dashTime)
         {
-            characterController.Move(dashDirection * Time.deltaTime);
-            currentDashTime -= Time.deltaTime;
+            controller.Move(dashDirection * dashSpeed * Time.deltaTime);
         }
         else
         {
-            isDashing = false;
-            fpm.dashing = false;
+            EndDash();
         }
     }
 
-    private Vector3 GetDirection(Transform forwardT)
+    public void EndDash()
     {
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-        float verticalInput = Input.GetAxisRaw("Vertical");
-
-        Vector3 direction = new Vector3();
-
-        if (allowAllDirections)
-            direction = forwardT.forward * verticalInput + forwardT.right * horizontalInput;
-        else
-            direction = forwardT.forward;
-
-        if (verticalInput == 0 && horizontalInput == 0)
-            direction = forwardT.forward;
-
-        return direction.normalized;
+        isDashing = false;
+        playerCamera.fieldOfView = normalFOV; // Reset FOV
     }
 }

@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoostSpell : MonoBehaviour
+public class BoostSpell : Spell
 {
-    // Start is called before the first frame update
-    void Start()
+    public float boostDuration = 5f;
+
+    public override void CastSpell(Transform cameraTransform)
     {
-        
+        StartCoroutine(BoostCoroutine());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator BoostCoroutine()
     {
-        
+        InGameManager.Instance.inputController.ActivateBoost();
+        yield return new WaitForSeconds(boostDuration);
+        InGameManager.Instance.inputController.DeactivateBoost();
+
+        Destroy(gameObject);
     }
 }

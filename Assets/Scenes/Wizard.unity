@@ -14465,6 +14465,12 @@ PrefabInstance:
       objectReference: {fileID: 23409847}
     - target: {fileID: 2540056835562109554, guid: 22cc7f9f38fa0f64db9b8853848509b1,
         type: 3}
+      propertyPath: boostSpell
+      value: 
+      objectReference: {fileID: 6381841408437896534, guid: 07effde13a0e8044987dcbcd19889681,
+        type: 3}
+    - target: {fileID: 2540056835562109554, guid: 22cc7f9f38fa0f64db9b8853848509b1,
+        type: 3}
       propertyPath: iceShardSpell
       value: 
       objectReference: {fileID: 9180581054477124543, guid: 3a63c14418eddb64999a41ee705ffaa8,
@@ -14540,6 +14546,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8550182633486983674, guid: 22cc7f9f38fa0f64db9b8853848509b1,
+        type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 8552378616250559635}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

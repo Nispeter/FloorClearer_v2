@@ -5,6 +5,8 @@ public class SpellCombination : MonoBehaviour
 {
     public ArcaneMissilesSpell arcaneMissilesSpell;
     public IceShardSpell iceShardSpell;
+    public BoostSpell boostSpell;
+
     public Spell Combine(List<ElementBall> elementBalls)
     {
         int _spellID = 0;
@@ -33,7 +35,10 @@ public class SpellCombination : MonoBehaviour
     {
         Debug.Log("Combined Spell ID: " + SID);
 
-        if (SID == 30)
+        if (SID == 3){
+            return boostSpell;
+        }
+        else if (SID == 30)
         {
             return arcaneMissilesSpell;
         }
