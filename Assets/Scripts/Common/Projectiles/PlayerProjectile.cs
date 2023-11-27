@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerProjectile : Projectile
 {
-    public virtual void OnTriggerEnter(Collider collision)
+    public void OnTriggerEnter(Collider collision)
     {
-         if(collision.gameObject.tag == "Enemy")
+        if(collision.gameObject.tag == "Enemy")
         {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             if(enemy != null)
             {
-                enemy.TakeDamage(proyectileDamage);
+                enemy.TakeDamage(projectileDamage);
             }
         }           
         

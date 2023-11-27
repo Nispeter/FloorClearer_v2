@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0
   lifeTime: 8
-  proyectileDamage: 1
+  projectileDamage: 1
   projectileSpeed: 10
   randomDeviation: 0.1
   bounceMultiplier: 0.8

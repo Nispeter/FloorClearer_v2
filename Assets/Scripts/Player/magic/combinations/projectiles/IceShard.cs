@@ -16,12 +16,12 @@ public class IceShard : PlayerProjectile
         moveSpeed = 30f;
         lifeTime = 30f;
         moveDirection = cam.forward.normalized;
-        proyectileDamage = damage;
+        projectileDamage = damage;
 
         rb.velocity = moveDirection * moveSpeed;
     }
 
-    public override void OnTriggerEnter(Collider collision)
+    public void OnTriggerEnter(Collider collision)
     {
 
         if (collision.gameObject.tag == "Enemy")
@@ -29,7 +29,7 @@ public class IceShard : PlayerProjectile
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(proyectileDamage);
+                enemy.TakeDamage(projectileDamage);
             }
         }
         if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "Projectile")
