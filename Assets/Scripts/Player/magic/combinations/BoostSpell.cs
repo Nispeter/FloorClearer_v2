@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class BoostSpell : Spell
@@ -8,15 +8,11 @@ public class BoostSpell : Spell
 
     public override void CastSpell(Transform cameraTransform)
     {
-        StartCoroutine(BoostCoroutine());
+        BoostCoroutine();
     }
 
-    private IEnumerator BoostCoroutine()
+    private void BoostCoroutine()
     {
-        InGameManager.Instance.inputController.ActivateBoost();
-        yield return new WaitForSeconds(boostDuration);
-        InGameManager.Instance.inputController.DeactivateBoost();
-
-        Destroy(gameObject);
+        StartCoroutine(InGameManager.Instance.inputController.ActivateBoost(boostDuration));
     }
 }

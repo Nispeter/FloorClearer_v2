@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class InputController : MonoBehaviour
 {
@@ -31,9 +32,11 @@ public class InputController : MonoBehaviour
         playerInteract = GetComponent<PlayerInteract>();
     }
 
-    public void ActivateBoost(){
+    public IEnumerator ActivateBoost(float boostDuration){
         playerMovement.airJumps++;
         isMovementBoosted = true;
+        yield return new WaitForSeconds(boostDuration);
+        DeactivateBoost();
     }
 
     public void DeactivateBoost(){
