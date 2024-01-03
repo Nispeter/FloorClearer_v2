@@ -7,6 +7,7 @@ public abstract class Enemy : MonoBehaviour, IHealth, IEntity
     [SerializeField] protected float _health;
     [SerializeField] protected float _remainingHealth;
     [SerializeField] private int _pointsOnKill;
+    public int cost = 10;
 
     public float health
     {

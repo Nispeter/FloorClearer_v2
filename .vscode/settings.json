@@ -52,5 +52,6 @@
         "temp/":true,
         "Temp/":true
     },
-    "dotnet.defaultSolution": "FloorClearer.sln"
+    "dotnet.defaultSolution": "FloorClearer.sln",
+    "dotnet.preferCSharpExtension": true
 }
