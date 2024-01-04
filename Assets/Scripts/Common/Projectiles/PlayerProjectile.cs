@@ -6,14 +6,17 @@ public class PlayerProjectile : Projectile
 {
     public void OnTriggerEnter(Collider collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            if(enemy != null)
+            if (enemy != null)
             {
                 enemy.TakeDamage(projectileDamage);
             }
-        }           
+        }
+        else {
+            Destroy(gameObject);
+        }       
         
     }
 }

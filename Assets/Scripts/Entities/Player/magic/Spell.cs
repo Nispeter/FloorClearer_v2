@@ -12,7 +12,7 @@ public abstract class Spell : MonoBehaviour {
     public float spellSpeed;
 
     public Sprite thumbnail;
-    public List<string> statusEffects  = new List<string>();
+    public List<string> damageTypes  = new List<string>();
 
     virtual public void CastSpell(Transform cameraTransform){}
 }

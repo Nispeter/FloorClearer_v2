@@ -14,7 +14,7 @@ public class IceShardSpell : Spell
         healing = 0;
         castSpeed = 1;
         spellSpeed = 1;
-        statusEffects.Add("cold");
+        damageTypes.Add("cold");
     }
 
      public override void CastSpell(Transform cameraTransform)
