@@ -3,15 +3,19 @@ using UnityEngine;
 
 public class BoostSpell : Spell
 {
-    public float boostDuration = 5f;
+
+    void Start(){
+        duration = 5f;
+    }
+    
 
     public override void CastSpell(Transform cameraTransform)
     {
-        BoostCoroutine();
+        Boost();
     }
 
-    private void BoostCoroutine()
+    private void Boost()
     {
-        StartCoroutine(InGameManager.Instance.inputController.ActivateBoost(boostDuration));
+        InGameManager.Instance.inputController.MovementBoost(duration);
     }
 }

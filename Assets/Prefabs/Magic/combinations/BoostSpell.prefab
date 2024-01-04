@@ -50,7 +50,6 @@ MonoBehaviour:
   healing: 2
   castSpeed: 2
   spellSpeed: 2
+  duration: 10
   thumbnail: {fileID: 21300000, guid: 61084d1c9dd46e748a78309865fca4fc, type: 3}
-  statusEffects:
-  - 
-  boostDuration: 5
+  damageTypes: []

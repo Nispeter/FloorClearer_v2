@@ -32,6 +32,9 @@ public class InputController : MonoBehaviour
         playerInteract = GetComponent<PlayerInteract>();
     }
 
+    public void MovementBoost(float boostDuration){
+        StartCoroutine(ActivateBoost(boostDuration));
+    }
     public IEnumerator ActivateBoost(float boostDuration){
         playerMovement.airJumps++;
         isMovementBoosted = true;

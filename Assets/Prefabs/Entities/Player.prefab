@@ -460,6 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 941924468fa1e6740ae9f21c8e284c22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dashing: {fileID: 8550182633486983674}
 --- !u!114 &1297611164842318498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -499,7 +500,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1352964984282847460}
   dashDistance: 5
-  dashSpeed: 20
   dashTime: 0.2
   playerCamera: {fileID: 0}
   normalFOV: 60

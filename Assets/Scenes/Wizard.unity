@@ -13124,12 +13124,17 @@ PrefabInstance:
     - target: {fileID: 9010942873927886186, guid: 05f9eeb388d1f2d4f8fa086b18206448,
         type: 3}
       propertyPath: spawnRadius
-      value: 60
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 9010942873927886186, guid: 05f9eeb388d1f2d4f8fa086b18206448,
         type: 3}
       propertyPath: clusterRadius
-      value: 10
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010942873927886186, guid: 05f9eeb388d1f2d4f8fa086b18206448,
+        type: 3}
+      propertyPath: actionInterval
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9010942873927886186, guid: 05f9eeb388d1f2d4f8fa086b18206448,
         type: 3}
@@ -14841,6 +14846,11 @@ PrefabInstance:
       propertyPath: SpellBook.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3509284793313414565, guid: 22cc7f9f38fa0f64db9b8853848509b1,
+        type: 3}
+      propertyPath: dashing
+      value: 
+      objectReference: {fileID: 8552378616250559645}
     - target: {fileID: 4751349383436780284, guid: 22cc7f9f38fa0f64db9b8853848509b1,
         type: 3}
       propertyPath: SpellSlots
@@ -14903,6 +14913,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8550182633486983674, guid: 22cc7f9f38fa0f64db9b8853848509b1,
         type: 3}
+      propertyPath: dashFOV
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 8550182633486983674, guid: 22cc7f9f38fa0f64db9b8853848509b1,
+        type: 3}
+      propertyPath: dashTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8550182633486983674, guid: 22cc7f9f38fa0f64db9b8853848509b1,
+        type: 3}
+      propertyPath: dashSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8550182633486983674, guid: 22cc7f9f38fa0f64db9b8853848509b1,
+        type: 3}
+      propertyPath: dashDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8550182633486983674, guid: 22cc7f9f38fa0f64db9b8853848509b1,
+        type: 3}
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 8552378616250559635}
@@ -14939,6 +14969,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1311bbb01ba5be40a00231cefdb8b1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8552378616250559645 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8550182633486983674, guid: 22cc7f9f38fa0f64db9b8853848509b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 8552378616250559634}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 981ec443398eacf49ad8db479da86ebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8629436091105487515

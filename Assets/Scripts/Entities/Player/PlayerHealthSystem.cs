@@ -6,7 +6,7 @@ public class PlayerHealthSystem : MonoBehaviour, IHealth
 {
     public float health { get; set; }
     public float remainingHealth { get; set; }
-
+    public Dashing dashing;
     private HealthBar HealthBar;
     private PlayerCamera PlayerCameraManager;
 
@@ -21,6 +21,7 @@ public class PlayerHealthSystem : MonoBehaviour, IHealth
 
     public void TakeDamage(float damage)
     {
+        if(dashing.isDashing)return;
         remainingHealth -= damage;
         PlayerCameraManager.CameraShake(0.5f, 0.1f);
         HealthBar.UpdateHealthBar(remainingHealth, health);

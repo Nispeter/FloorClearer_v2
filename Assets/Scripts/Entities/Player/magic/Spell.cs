@@ -10,6 +10,7 @@ public abstract class Spell : MonoBehaviour {
     public float healing;
     public float castSpeed;
     public float spellSpeed;
+    public float duration;
 
     public Sprite thumbnail;
     public List<string> damageTypes  = new List<string>();
