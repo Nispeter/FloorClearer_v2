@@ -9,7 +9,7 @@ public class WallSpear : MonoBehaviour, IActivable, IAttack
     public float deactivateDelay = 5f;
 
     [Header("Lerp")]
-    public float lerpTime = 1f;
+    public float lerpTime = 0.1f;
     public Vector3 activePositionOffset = new Vector3(0, 2f, 0f);
     private Vector3 originalPosition;
     private Vector3 targetPosition;
