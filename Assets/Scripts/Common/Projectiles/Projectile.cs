@@ -4,15 +4,28 @@ using UnityEngine;
 
 public abstract class Projectile : MonoBehaviour, IAttack
 {
+    [Header("Projectile params")]
     public float moveSpeed;
     public float lifeTime;
-    public float projectileDamage;
-    
+    [SerializeField] private Collider _damageCollider;
+    [SerializeField] private float _damage;
+
+    public Collider damageCollider
+    {
+        get { return _damageCollider; }
+        set { _damageCollider = value; }
+    }
+
+    public float damage
+    {
+        get { return _damage; }
+        set { _damage = value; }
+    }
     public void DealDamage(IHealth target)
     {
         if (target != null)
         {
-            target.TakeDamage(projectileDamage);
+            target.TakeDamage(damage);
         }
     }
 
@@ -22,7 +35,8 @@ public abstract class Projectile : MonoBehaviour, IAttack
         DealDamage(target);
     }
 
-    public IEnumerator ActivateDamageCollider(float time) {
+    public IEnumerator ActivateDamageCollider(float time)
+    {
         return null;
-     }
+    }
 }

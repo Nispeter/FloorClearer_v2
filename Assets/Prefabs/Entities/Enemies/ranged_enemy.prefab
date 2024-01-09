@@ -9,13 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 755100841184729864}
+  - component: {fileID: 8219989249708858014}
   - component: {fileID: 3016669022191854444}
   - component: {fileID: 9209725275679318781}
   - component: {fileID: 878459034581965823}
-  - component: {fileID: 8219989249708858014}
   - component: {fileID: 6744184271057415667}
   m_Layer: 0
-  m_Name: enemy_tutorial
+  m_Name: ranged_enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,6 +36,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8219989249708858014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8058300235632534956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b423d562f9357a4aa63e76f72e8743e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 3
+  _remainingHealth: 3
+  _pointsOnKill: 10
+  cost: 10
+  agent: {fileID: 6744184271057415667}
+  player: {fileID: 0}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 128
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 256
+  walkPoint: {x: 0, y: 0, z: 0}
+  walkPointRange: 0
+  timeBetweenAttacks: 4
+  projectile: {fileID: 3849457984163924473, guid: 84406312fc4c35e4a844ba8c5c263c99,
+    type: 3}
+  sightRange: 20
+  attackRange: 10
+  playerInSightRange: 0
+  playerInAttackRange: 0
 --- !u!33 &3016669022191854444
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -107,36 +140,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8219989249708858014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8058300235632534956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b423d562f9357a4aa63e76f72e8743e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 6744184271057415667}
-  player: {fileID: 0}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 128
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 256
-  health: 10
-  walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 0
-  timeBetweenAttacks: 4
-  projectile: {fileID: 2631677344200499504, guid: a98c57a03f579484ba723dc5ebcf5bbe,
-    type: 3}
-  sightRange: 20
-  attackRange: 10
-  playerInSightRange: 0
-  playerInAttackRange: 0
 --- !u!195 &6744184271057415667
 NavMeshAgent:
   m_ObjectHideFlags: 0

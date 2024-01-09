@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Enemy : MonoBehaviour, IHealth, IEntity
+public abstract class Enemy : MonoBehaviour, IHealth
 {
+    [Header("Enemy params")]
     [SerializeField] protected float _health;
     [SerializeField] protected float _remainingHealth;
     [SerializeField] private int _pointsOnKill;
@@ -21,11 +22,6 @@ public abstract class Enemy : MonoBehaviour, IHealth, IEntity
         set => _remainingHealth = value;
     }
 
-    public void ModifyMovementSpeed(float modifier)
-    {
-        Debug.Log("Slowed");
-    }
-
     public virtual void TakeDamage(float damage)
     {
         _remainingHealth -= damage;
@@ -37,5 +33,7 @@ public abstract class Enemy : MonoBehaviour, IHealth, IEntity
         }
     }
 
-    public abstract void Die();
+    public virtual void Die(){
+        Destroy(this.gameObject);
+    }
 }

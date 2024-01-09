@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8580360470194511472}
   - component: {fileID: 5834245276204772026}
   - component: {fileID: 6078895914490898354}
+  - component: {fileID: 4441043204605017520}
   m_Layer: 0
   m_Name: Spear1H_Medium
   m_TagString: Untagged
@@ -96,6 +97,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae6bff7a6f3fc9048b8e41a9f4c9d14d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activePositionOffset: {x: 1, y: 0, z: 0}
-  lerpTime: 1
   deactivateDelay: 5
+  lerpTime: 1
+  activePositionOffset: {x: 1, y: 0, z: 0}
+  _damageCollider: {fileID: 0}
+  _damage: 5
+--- !u!136 &4441043204605017520
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5474014686464707439}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.077064075
+  m_Height: 0.5455102
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.37031788, z: 0.000000007450581}

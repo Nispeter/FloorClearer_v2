@@ -147,9 +147,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b4c91fe42f2be74787349f6f3397051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
+  moveSpeed: 10
   lifeTime: 8
-  projectileDamage: 1
+  _damageCollider: {fileID: 6904982152148935498}
+  _damage: 1
   projectileSpeed: 10
   randomDeviation: 0.1
   bounceMultiplier: 0.8

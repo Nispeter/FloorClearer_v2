@@ -16,7 +16,7 @@ public class IceShard : PlayerProjectile
         moveSpeed = 30f;
         lifeTime = 30f;
         moveDirection = cam.forward.normalized;
-        projectileDamage = damage;
+        damage = damage;
 
         rb.velocity = moveDirection * moveSpeed;
     }
@@ -29,7 +29,7 @@ public class IceShard : PlayerProjectile
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(projectileDamage);
+                enemy.TakeDamage(damage);
             }
         }
         if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "Projectile")

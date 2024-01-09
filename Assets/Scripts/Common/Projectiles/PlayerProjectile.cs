@@ -11,7 +11,7 @@ public class PlayerProjectile : Projectile
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(projectileDamage);
+                enemy.TakeDamage(damage);
             }
         }
         else {

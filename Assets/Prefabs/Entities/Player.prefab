@@ -420,8 +420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9e832bf1eebd14b95e73faada4a9fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicAttackFactory: {fileID: 7394111635025660333, guid: 6ff1196c91f1fba4392c5650c1f943c7,
-    type: 3}
+  basicAttackFactory: {fileID: 7581528612656101354}
   aimPointer: {fileID: 3704000560159484980}
   LightBall: {fileID: 2162934309380248175, guid: ee22982a62af0f34f8bf33c7a46bc117,
     type: 3}
@@ -654,6 +653,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3704000560159484980}
+  - component: {fileID: 7581528612656101354}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -676,3 +676,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6036303689114321583}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7581528612656101354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8329400579031851635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed36dcd8ec200384dbb0e6dfae2d5ef5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BasicAttackPrefab: {fileID: 3849457984163924473, guid: c47e0a7c57b40924eba541195a148173,
+    type: 3}
+  basicAttackForce: 30
+  basicShootRate: 0.2
+  _basicShootTime: 0

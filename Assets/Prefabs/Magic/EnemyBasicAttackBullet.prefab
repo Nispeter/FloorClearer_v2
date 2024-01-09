@@ -53,7 +53,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4d38a33ad0018594a86f6f90b718af33, type: 2}
+  - {fileID: 2100000, guid: d5f5317f91cc53b4ab567b3e675c3ed9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -105,7 +105,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0.7817019, b: 0, a: 1}
+      key0: {r: 0, g: 1, b: 0.29414654, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -154,13 +154,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 15241596494062931}
+  - component: {fileID: 8178122734602200349}
   - component: {fileID: 7873091254300013720}
   - component: {fileID: 8754835712199537392}
   - component: {fileID: 1081372157879977715}
   - component: {fileID: 793300437860283429}
-  - component: {fileID: -8150706203043366741}
   m_Layer: 0
-  m_Name: BasicAttackBullet
+  m_Name: EnemyBasicAttackBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183,6 +183,22 @@ Transform:
   - {fileID: 953655530102330380}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &8178122734602200349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3849457984163924473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 550c729710170004b94dc0c7cde7fa2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 30
+  lifeTime: 10
+  _damageCollider: {fileID: 1081372157879977715}
+  _damage: 2
 --- !u!33 &7873091254300013720
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -283,21 +299,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-8150706203043366741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3849457984163924473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60d432f13e8dbc24fbe72f89d6187207, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 20
-  lifeTime: 10
-  projectileDamage: 3
 --- !u!1 &4645714265451916891
 GameObject:
   m_ObjectHideFlags: 0

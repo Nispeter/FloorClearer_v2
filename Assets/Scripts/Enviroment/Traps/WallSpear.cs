@@ -13,28 +13,39 @@ public class WallSpear : MonoBehaviour, IActivable, IAttack
     public Vector3 activePositionOffset = new Vector3(0, 2f, 0f);
     private Vector3 originalPosition;
     private Vector3 targetPosition;
-
-    public float spearDamage = 10f;
-    public Collider damageCollider;
     private float colliderTime = 0.5f;
+    [SerializeField] private Collider _damageCollider;
+    [SerializeField] private float _damage;
 
+    public Collider damageCollider
+    {
+        get { return _damageCollider; }
+        set { _damageCollider = value; }
+    }
+
+    public float damage
+    {
+        get { return _damage; }
+        set { _damage = value; }
+    }
     private void Start()
     {
         damageCollider = GetComponent<Collider>();
         originalPosition = transform.position;
     }
 
-    public IEnumerator ActivateDamageCollider(float deactivateDelay){
-        damageCollider.enabled = true; 
-        yield return new WaitForSeconds(deactivateDelay); 
-        damageCollider.enabled = false; 
+    public IEnumerator ActivateDamageCollider(float deactivateDelay)
+    {
+        damageCollider.enabled = true;
+        yield return new WaitForSeconds(deactivateDelay);
+        damageCollider.enabled = false;
     }
 
-      public void DealDamage(IHealth target)
+    public void DealDamage(IHealth target)
     {
         if (target != null)
         {
-            target.TakeDamage(spearDamage);
+            target.TakeDamage(damage);
         }
     }
 

@@ -46,9 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f754e9298543e498b7993d90add523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1000
+  moveSpeed: 10000
   lifeTime: 10
-  projectileDamage: 4
+  _damageCollider: {fileID: 6935960687117691417}
+  _damage: 10
   iceSurfacePrefab: {fileID: 7223887968191547298, guid: 070f57849816fe840a39b061102d06dd,
     type: 3}
 --- !u!54 &4088681614579137825

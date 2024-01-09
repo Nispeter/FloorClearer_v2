@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed36dcd8ec200384dbb0e6dfae2d5ef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BasicAttackPrefab: {fileID: 3849457984163924473, guid: 84406312fc4c35e4a844ba8c5c263c99,
+  BasicAttackPrefab: {fileID: 3849457984163924473, guid: c47e0a7c57b40924eba541195a148173,
     type: 3}
   basicAttackForce: 30
   basicShootRate: 0.3
