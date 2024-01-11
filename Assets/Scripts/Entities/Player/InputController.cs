@@ -80,7 +80,6 @@ public class InputController : MonoBehaviour
         PauseInput();
         if (onlyPauseEnabled)
             return;
-
         MovementInput();
         InteractInput();
         if (!isCombatMode)
@@ -95,7 +94,7 @@ public class InputController : MonoBehaviour
         bool isSprinting = Input.GetKey(KeyCode.LeftShift);
         bool isWalking = Input.GetKey(KeyCode.LeftControl);
 
-        playerMovement.HandleMovement(horizontalInput, verticalInput, isSprinting, isWalking);
+        playerMovement.HandleMovement(horizontalInput, verticalInput, isSprinting, isWalking, isMovementBoosted);
 
         if (Input.GetButtonDown("Jump"))
         {

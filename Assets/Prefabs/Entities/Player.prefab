@@ -421,6 +421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basicAttackFactory: {fileID: 7581528612656101354}
+  SpellSlots: {fileID: 0}
   aimPointer: {fileID: 3704000560159484980}
   LightBall: {fileID: 2162934309380248175, guid: ee22982a62af0f34f8bf33c7a46bc117,
     type: 3}
@@ -428,7 +429,6 @@ MonoBehaviour:
     type: 3}
   SpiritBall: {fileID: 2162934309380248175, guid: cb11d60fc3da5dd4fb0b6564fa6dfe4e,
     type: 3}
-  SpellSlots: {fileID: 0}
 --- !u!114 &2540056835562109554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,12 +441,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a962181075120e542901f313e02d1765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arcaneMissilesSpell: {fileID: 6897240093383624588, guid: 1d345eb5a90a6d44b9238a0ce7f36a48,
-    type: 3}
-  iceShardSpell: {fileID: 9180581054477124543, guid: 3a63c14418eddb64999a41ee705ffaa8,
-    type: 3}
-  boostSpell: {fileID: 6381841408437896534, guid: 07effde13a0e8044987dcbcd19889681,
-    type: 3}
+  spellEntries:
+  - spellID: 3
+    spell: {fileID: 6381841408437896534, guid: 07effde13a0e8044987dcbcd19889681, type: 3}
+  - spellID: 30
+    spell: {fileID: 6897240093383624588, guid: 1d345eb5a90a6d44b9238a0ce7f36a48, type: 3}
+  - spellID: 120
+    spell: {fileID: 9180581054477124543, guid: 3a63c14418eddb64999a41ee705ffaa8, type: 3}
 --- !u!114 &3509284793313414565
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -31,7 +31,6 @@ public class InGameManager : MonoBehaviour
             return _instance;
         }
     }
-
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -66,7 +65,6 @@ public class InGameManager : MonoBehaviour
         DeactivateGameUI();
         CustomSceneManager.Instance.LoadHUB();
     }
-
 
     public void OpenPauseScreen()
     {

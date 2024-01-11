@@ -8,17 +8,19 @@ public class PlayerSpellCasting : MonoBehaviour
     private const int _maxStoredSpells = 2;
 
     public BasicAttackFactory basicAttackFactory;
-    public Transform aimPointer;
 
-    private List<ElementBall> elementBalls = new List<ElementBall>();
+    [Header("Spell Combination")]
     private SpellCombination MagicMixer;
     public Queue<Spell> storedSpells = new Queue<Spell>();
+    public SpellUI SpellSlots;
+    public Transform aimPointer;
+    private Camera CasterCam;
+
+    [Header("Element Orbs")]
+    private List<ElementBall> elementBalls = new List<ElementBall>();
     public GameObject LightBall;
     public GameObject ArcaneBall;
     public GameObject SpiritBall;
-
-    public SpellUI SpellSlots;
-    private Camera CasterCam;
 
     private void Start()
     {

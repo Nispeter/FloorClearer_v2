@@ -1,55 +1,73 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class SpellEntry
+{
+    public int spellID;
+    public Spell spell;
+}
 public class SpellCombination : MonoBehaviour
 {
-    public ArcaneMissilesSpell arcaneMissilesSpell;
-    public IceShardSpell iceShardSpell;
-    public BoostSpell boostSpell;
+      [SerializeField] 
+    private List<SpellEntry> spellEntries = new List<SpellEntry>();
 
-    public Spell Combine(List<ElementBall> elementBalls)
+    private Dictionary<int, Spell> knownSpells = new Dictionary<int, Spell>();
+
+    private void Awake()
     {
-        int _spellID = 0;
+        // Populate the dictionary from the serialized list
+        foreach (SpellEntry entry in spellEntries)
+        {
+            knownSpells[entry.spellID] = entry.spell;
+        }
+    }
 
-        // Check if there are enough element balls to perform a combination
+
+     public Spell Combine(List<ElementBall> elementBalls)
+    {
         if (elementBalls.Count != 3)
         {
             Debug.Log("Not enough element balls for combination.");
-
-        }
-        // Check the elements of the balls and determine the resulting spell
-        for (int i = 0; i < 3; i++)
-        {
-            if (elementBalls[i].elementType == Element.Light)
-                _spellID += 1;
-            else if (elementBalls[i].elementType == Element.Arcane)
-                _spellID += 10;
-            else if (elementBalls[i].elementType == Element.Spirit)
-                _spellID += 100;
+            return null; // Return null if there aren't enough balls
         }
 
-        return getCombinedSpell(_spellID);
+        int spellID = CalculateSpellID(elementBalls);
+        return GetCombinedSpell(spellID);
     }
 
-    private Spell getCombinedSpell(int SID)
+    private int CalculateSpellID(List<ElementBall> elementBalls)
     {
-        Debug.Log("Combined Spell ID: " + SID);
-
-        if (SID == 3){
-            return boostSpell;
-        }
-        else if (SID == 30)
+        int spellID = 0;
+        foreach (var ball in elementBalls)
         {
-            return arcaneMissilesSpell;
+            switch (ball.elementType)
+            {
+                case Element.Light:
+                    spellID += 1;
+                    break;
+                case Element.Arcane:
+                    spellID += 10;
+                    break;
+                case Element.Spirit:
+                    spellID += 100;
+                    break;
+            }
         }
-        else if (SID == 120)
+        return spellID;
+    }
+    private Spell GetCombinedSpell(int spellID)
+    {
+        Debug.Log("Combined Spell ID: " + spellID);
+        Spell spell;
+        if (knownSpells.TryGetValue(spellID, out spell))
         {
-            return iceShardSpell;
+            return spell;
         }
         else
         {
-            Debug.Log("Spell not implemented");
-            return arcaneMissilesSpell;
+            Debug.Log("Spell not found for ID: " + spellID);
+            return null; // Return null if no spell matches the ID
         }
     }
 }

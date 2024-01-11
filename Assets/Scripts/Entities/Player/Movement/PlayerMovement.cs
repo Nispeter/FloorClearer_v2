@@ -12,6 +12,7 @@ public class FirstPersonMovement : MonoBehaviour
     public float gravity = -9.81f;
     public float groundRayLength = 0.2f;
     public int airJumps = 1;
+    public float boostMod = 1.2f;
 
     public Transform cameraTransform;
     private CharacterController controller;
@@ -30,7 +31,7 @@ public class FirstPersonMovement : MonoBehaviour
         _jumpsRemainig = airJumps;
     }
 
-    public void HandleMovement(float horizontalInput, float verticalInput, bool isSprinting, bool isWalking)
+    public void HandleMovement(float horizontalInput, float verticalInput, bool isSprinting, bool isWalking, bool isMovementBoosted)
     {
         Vector3 moveDirection = (cameraTransform.forward.normalized * verticalInput + cameraTransform.right.normalized * horizontalInput);
         moveDirection.y = 0f;
@@ -47,6 +48,7 @@ public class FirstPersonMovement : MonoBehaviour
         {
             movementSpeed = _defaultSpeed;
         }
+        movementSpeed *=(isMovementBoosted ? boostMod : 1);
         Vector3 moveVelocity = moveDirection.normalized * movementSpeed;
 
         ApplyGravity();

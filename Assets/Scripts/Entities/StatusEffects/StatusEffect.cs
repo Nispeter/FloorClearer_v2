@@ -2,22 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class StatusEffect
 {
-    public float Duration { get; private set; }
+    public enum EffectType { Poison, Freeze, Burn, SpeedBoost }
+    public EffectType effectType;
+    public float duration;
+    public float intensity;
 
-    public StatusEffect(float duration)
+    // Constructor
+    public StatusEffect(EffectType type, float duration, float intensity)
     {
-        Duration = duration;
+        this.effectType = type;
+        this.duration = duration;
+        this.intensity = intensity;
     }
 
-    public virtual void Apply(GameObject entity)
+    // Método para aplicar el efecto (se puede personalizar para cada tipo)
+    public void ApplyEffect(IEntity character)
     {
-
-    }
-
-    public virtual void Remove(GameObject entity)
-    {
-
+        // Implementar lógica específica del efecto aquí
     }
 }
