@@ -63,7 +63,7 @@ MonoBehaviour:
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 0
   timeBetweenAttacks: 4
-  projectile: {fileID: 3849457984163924473, guid: 84406312fc4c35e4a844ba8c5c263c99,
+  projectile: {fileID: 3849457984163924473, guid: f34311a289078e144a1d588674ed318d,
     type: 3}
   sightRange: 20
   attackRange: 10
@@ -148,7 +148,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8058300235632534956}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: -1372625422
   m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8

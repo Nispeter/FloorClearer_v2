@@ -7,7 +7,8 @@ public abstract class Enemy : MonoBehaviour, IHealth
     [Header("Enemy params")]
     [SerializeField] protected float _health;
     [SerializeField] protected float _remainingHealth;
-    [SerializeField] private int _pointsOnKill;
+    public List<StatusEffect> StatusEffects { get; set; } = new List<StatusEffect>();
+    public int pointsOnKill;
     public int cost = 10;
 
     public float health
@@ -29,11 +30,11 @@ public abstract class Enemy : MonoBehaviour, IHealth
         if (_remainingHealth <= 0)
         {
             Die();
-            InGameManager.Instance.pointCounter.AddPoints(_pointsOnKill);
+            InGameManager.Instance.pointCounter.AddPoints(pointsOnKill);
         }
     }
 
     public virtual void Die(){
-        Destroy(this.gameObject);
+        Destroy(this.gameObject, 1.5f);
     }
 }

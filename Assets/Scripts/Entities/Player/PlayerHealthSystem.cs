@@ -9,6 +9,7 @@ public class PlayerHealthSystem : MonoBehaviour, IHealth
     public Dashing dashing;
     private HealthBar HealthBar;
     private PlayerCamera PlayerCameraManager;
+    public List<StatusEffect> StatusEffects { get; set; } = new List<StatusEffect>();
 
     public void Start()
     {

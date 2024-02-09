@@ -31,9 +31,9 @@ public class CrystalShard : PlayerProjectile
     }
 
     private void OnCollisionEnter(Collision collision)
-{
-    Vector3 reflectedVelocity = Vector3.Reflect(rb.velocity, collision.contacts[0].normal);
-    rb.AddForce(reflectedVelocity * projectileSpeed * bounceMultiplier, ForceMode.VelocityChange);
-}
+    {
+        Vector3 reflectedVelocity = Vector3.Reflect(rb.velocity, collision.contacts[0].normal);
+        rb.AddForce(reflectedVelocity * projectileSpeed * bounceMultiplier, ForceMode.VelocityChange);
+    }
 
 }
