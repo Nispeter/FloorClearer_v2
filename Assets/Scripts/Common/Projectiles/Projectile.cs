@@ -29,13 +29,17 @@ public abstract class Projectile : MonoBehaviour, IAttack
         }
     }
 
+    public virtual void StartAttack(){
+        
+    }
+
     public virtual void OnTriggerEnter(Collider collision)
     {
         IHealth target = collision.gameObject.GetComponent<IHealth>();
         DealDamage(target);
     }
 
-    public IEnumerator ActivateDamageCollider(float time)
+    public IEnumerator ActivateDamageCollider(float delayBeforeActivation, float durationOfActivation)
     {
         return null;
     }

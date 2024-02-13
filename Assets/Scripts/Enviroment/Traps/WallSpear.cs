@@ -34,7 +34,7 @@ public class WallSpear : MonoBehaviour, IActivable, IAttack
         originalPosition = transform.position;
     }
 
-    public IEnumerator ActivateDamageCollider(float deactivateDelay)
+    public IEnumerator ActivateDamageCollider(float delayBeforeActivation,float deactivateDelay)
     {
         damageCollider.enabled = true;
         yield return new WaitForSeconds(deactivateDelay);
@@ -60,7 +60,7 @@ public class WallSpear : MonoBehaviour, IActivable, IAttack
     {
         targetPosition = transform.position + transform.TransformDirection(activePositionOffset);
         StartCoroutine(MoveSpear(targetPosition, lerpTime));
-        StartCoroutine(ActivateDamageCollider(colliderTime));
+        StartCoroutine(ActivateDamageCollider(0f,colliderTime));
         StartCoroutine(DeactivateAfterDelay(deactivateDelay));
     }
 

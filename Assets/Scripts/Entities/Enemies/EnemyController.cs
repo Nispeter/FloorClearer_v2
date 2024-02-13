@@ -18,14 +18,15 @@ public class EnemyController : Enemy
 
     [Header("Attacking params")]
     public float timeBetweenAttacks;
-    bool alreadyAttacked;
-    public GameObject projectile;
+    protected bool alreadyAttacked;
+    public GameObject attack;
+    private IAttack _iattack;
 
     [Header("States")]
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
-    private Animator animator;
+    protected Animator animator;
     private bool _isDead = false;
 
     private void Awake()
@@ -33,27 +34,28 @@ public class EnemyController : Enemy
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        _iattack = attack.GetComponent<IAttack>();
     }
 
     private void Update()
     {
-        if(_isDead)
+        if (_isDead)
             return;
         //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if (!playerInSightRange && !playerInAttackRange) 
+        if (!playerInSightRange && !playerInAttackRange)
             Patroling();
-        else 
+        else
             animator.SetBool("Walk Forward", false);
 
-        if (playerInSightRange && !playerInAttackRange) 
+        if (playerInSightRange && !playerInAttackRange)
             ChasePlayer();
-        else 
+        else
             animator.SetBool("Run Forward", false);
 
-        if (playerInAttackRange && playerInSightRange) 
+        if (playerInAttackRange && playerInSightRange)
             AttackPlayer();
     }
 
@@ -93,31 +95,22 @@ public class EnemyController : Enemy
         animator.SetBool("Run Forward", true);
     }
 
-    private void AttackPlayer()
+    public virtual void AttackPlayer()
     {
-        //Make sure enemy doesn't move
-        agent.SetDestination(transform.position);
 
-        float heightOffset = 0f;
-        Vector3 adjustedPosition = new Vector3(player.position.x, player.position.y + heightOffset, player.position.z);
-        transform.LookAt(adjustedPosition);
+        agent.SetDestination(transform.position);
 
         if (!alreadyAttacked)
         {
-            ///Attack code here
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up, ForceMode.Impulse);
-            ///End of attack code
+            animator.SetTrigger("Stab Attack");
+            StartCoroutine(_iattack.ActivateDamageCollider(0.1f, 0.5f));
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
 
-            //Action Animation
-            animator.SetTrigger("Stab Attack");
         }
     }
-    private void ResetAttack()
+    protected void ResetAttack()
     {
         alreadyAttacked = false;
     }
@@ -132,7 +125,7 @@ public class EnemyController : Enemy
 
     public override void TakeDamage(float damage)
     {
-        if(_isDead)
+        if (_isDead)
             return;
         _remainingHealth -= damage;
 
