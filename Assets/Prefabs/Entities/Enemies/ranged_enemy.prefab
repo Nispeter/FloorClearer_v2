@@ -131,8 +131,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 10
   _remainingHealth: 10
-  pointsOnKill: 4
-  cost: 10
+  pointsOnKill: 15
+  cost: 15
   agent: {fileID: 598070049012491235}
   player: {fileID: 0}
   whatIsGround:

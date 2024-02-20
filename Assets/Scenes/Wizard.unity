@@ -14116,60 +14116,6 @@ PrefabInstance:
       propertyPath: timeText
       value: 
       objectReference: {fileID: 2044113959}
-    - target: {fileID: 9010942873927886186, guid: 05f9eeb388d1f2d4f8fa086b18206448,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 8552378616250559637}
-    - target: {fileID: 9010942873927886186, guid: 05f9eeb388d1f2d4f8fa086b18206448,
-        type: 3}
-      propertyPath: spawnRadius
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 9010942873927886186, guid: 05f9eeb388d1f2d4f8fa086b18206448,
-        type: 3}
-      propertyPath: clusterRadius
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 9010942873927886186, guid: 05f9eeb388d1f2d4f8fa086b18206448,
-        type: 3}
-      propertyPath: actionInterval
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 9010942873927886186, guid: 05f9eeb388d1f2d4f8fa086b18206448,
-        type: 3}
-      propertyPath: saveProbability
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 9010942873927886186, guid: 05f9eeb388d1f2d4f8fa086b18206448,
-        type: 3}
-      propertyPath: Enemies.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9010942873927886186, guid: 05f9eeb388d1f2d4f8fa086b18206448,
-        type: 3}
-      propertyPath: Enemies.Array.data[0]
-      value: 
-      objectReference: {fileID: 2225117028654630253, guid: f1163d7a512b6794c9bc38d87c763fe7,
-        type: 3}
-    - target: {fileID: 9010942873927886186, guid: 05f9eeb388d1f2d4f8fa086b18206448,
-        type: 3}
-      propertyPath: Enemies.Array.data[1]
-      value: 
-      objectReference: {fileID: 8430459079788385585, guid: 82d68600eef471247a94a91ccc9e5289,
-        type: 3}
-    - target: {fileID: 9010942873927886186, guid: 05f9eeb388d1f2d4f8fa086b18206448,
-        type: 3}
-      propertyPath: Enemies.Array.data[2]
-      value: 
-      objectReference: {fileID: 3619663482251140156, guid: c968e462ccbee024fbecc81497371437,
-        type: 3}
-    - target: {fileID: 9010942873927886186, guid: 05f9eeb388d1f2d4f8fa086b18206448,
-        type: 3}
-      propertyPath: Enemies.Array.data[3]
-      value: 
-      objectReference: {fileID: 6202669385253770298, guid: 0b2dbd1733f2e454fb71e84c45e2dfb3,
-        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15876,18 +15822,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4aebf74396dd69543ad83a2260fd8250, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8552378616250559637 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 276056421874458400, guid: 22cc7f9f38fa0f64db9b8853848509b1,
-    type: 3}
-  m_PrefabInstance: {fileID: 8552378616250559634}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1311bbb01ba5be40a00231cefdb8b1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &8552378616250559645 stripped

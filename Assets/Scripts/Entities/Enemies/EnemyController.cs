@@ -44,18 +44,19 @@ public class EnemyController : Enemy
         //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        bool _isBeingDamaged = animator.GetCurrentAnimatorStateInfo(0).IsName("Take Damage");
 
-        if (!playerInSightRange && !playerInAttackRange)
+        if (!playerInSightRange && !playerInAttackRange && !_isBeingDamaged)
             Patroling();
         else
             animator.SetBool("Walk Forward", false);
 
-        if (playerInSightRange && !playerInAttackRange)
+        if (playerInSightRange && !playerInAttackRange && !_isBeingDamaged)
             ChasePlayer();
         else
             animator.SetBool("Run Forward", false);
 
-        if (playerInAttackRange && playerInSightRange)
+        if (playerInAttackRange && playerInSightRange && !_isBeingDamaged)
             AttackPlayer();
     }
 
@@ -129,11 +130,6 @@ public class EnemyController : Enemy
             return;
         _remainingHealth -= damage;
 
-        //Action Animation Deactivate
-        animator.SetBool("Run Forward", false);
-        animator.SetBool("Walk Forward", false);
-        animator.SetTrigger("Take Damage");
-
         if (_remainingHealth <= 0)
         {
             //Action Animation
@@ -146,5 +142,6 @@ public class EnemyController : Enemy
             agent.enabled = false;
             InGameManager.Instance.pointCounter.AddPoints(pointsOnKill);
         }
+        animator.SetTrigger("Take Damage");
     }
 }

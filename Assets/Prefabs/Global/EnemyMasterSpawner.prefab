@@ -46,11 +46,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pay: 50
   coins: 0
-  coinsIncreaseAmount: 2
+  coinsIncreaseAmount: 1
   timeSinceLastAction: 0
   actionInterval: 5
-  saveProbability: 70
-  spawnRadius: 20
-  clusterRadius: 5
+  saveProbability: 50
+  spawnRadius: 100
+  clusterRadius: 20
   player: {fileID: 0}
-  Enemies: []
+  Enemies:
+  - {fileID: 1737583937844546278, guid: 7475fa94925e3f94a992aed539a4790b, type: 3}
+  - {fileID: 1737583937844546278, guid: 7475fa94925e3f94a992aed539a4790b, type: 3}
+  - {fileID: 6504787061671394326, guid: e90463451008ccd438eec0e29643acd4, type: 3}
+  - {fileID: 447099896576790809, guid: 98c0d25f51687294f950ebcdc9e98d3b, type: 3}
