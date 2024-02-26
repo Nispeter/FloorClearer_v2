@@ -3,54 +3,57 @@ using UnityEngine;
 
 public class EnemyStabAttack : MonoBehaviour, IAttack
 {
-    [SerializeField]
-    private Collider _damageCollider;
+    [SerializeField] private Collider _damageCollider;
+    [SerializeField] private float _damage;
+
     public Collider damageCollider
     {
-        get => _damageCollider;
-        set => _damageCollider = value;
+        get { return _damageCollider; }
+        set { _damageCollider = value; }
     }
 
-    [SerializeField]
-    private float _damage = 2f;
     public float damage
     {
-        get => _damage;
-        set => _damage = value;
+        get { return _damage; }
+        set { _damage = value; }
     }
 
-    private void Awake()
+    private void Start()
     {
-        _damageCollider = GetComponent<Collider>();
         if (_damageCollider != null)
         {
-            Debug.Log("collider acquired");
             _damageCollider.enabled = false;
         }
     }
 
     public IEnumerator ActivateDamageCollider(float delayBeforeActivation, float durationOfActivation)
     {
-        //ACTIVATING OR DEACTIVATING DONT WORK!!
-        if (_damageCollider == null) yield break;
+
         yield return new WaitForSeconds(delayBeforeActivation);
-        _damageCollider.enabled = true; 
+        _damageCollider.enabled = true;
         yield return new WaitForSeconds(durationOfActivation);
         _damageCollider.enabled = false;
     }
 
-
     public void DealDamage(IHealth target)
     {
-        target.TakeDamage(_damage);
+        if (target != null)
+        {
+            target.TakeDamage(_damage);
+        }
     }
 
+    public void PerformAttack(float delayBeforeActivation, float durationOfActivation)
+    {
+        StartCoroutine(ActivateDamageCollider(delayBeforeActivation, durationOfActivation));
+    }
+`
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the collider belongs to an entity with IHealth
-        if (other.TryGetComponent<IHealth>(out IHealth health))
+        if (_damageCollider.enabled)
         {
-            DealDamage(health);
+            IHealth target = other.GetComponent<IHealth>();
+            DealDamage(target);
         }
     }
 }

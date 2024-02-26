@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneName: Wizard
+  portalName: {fileID: 0}
 --- !u!1 &5604941712293744085
 GameObject:
   m_ObjectHideFlags: 0
