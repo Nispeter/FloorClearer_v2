@@ -47,7 +47,7 @@ public class EnemyStabAttack : MonoBehaviour, IAttack
     {
         StartCoroutine(ActivateDamageCollider(delayBeforeActivation, durationOfActivation));
     }
-`
+
     private void OnTriggerEnter(Collider other)
     {
         if (_damageCollider.enabled)

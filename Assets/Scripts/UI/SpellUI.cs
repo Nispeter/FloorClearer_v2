@@ -4,24 +4,39 @@ using UnityEngine.UI;
 
 public class SpellUI : MonoBehaviour
 {
-    public GameObject spellImagePrefab;
-    public Transform spellImagesParent;
-    public Sprite placeHolderSpell;
-
+    public GameObject spellImagePrefab; 
+    public Transform spellImagesParent; 
+    public Sprite placeHolderSpell; 
+    public int maxSpellSlots = 3; 
     private Queue<Spell> storedSpells = new Queue<Spell>();
-    private List<Image> spellImages = new List<Image>();
+    public List<Image> spellImages = new List<Image>();
+
+    private void Start()
+    {
+        //InitializeSpellSlots();
+        UpdateSpellUI();
+    }
+
+    private void InitializeSpellSlots()
+{
+    spellImages.Clear(); 
+
+    foreach (Transform child in spellImagesParent)
+    {
+        Image image = child.GetComponent<Image>();
+        if (image != null)
+        {
+            image.sprite = placeHolderSpell; 
+            spellImages.Add(image); 
+        }
+    }
+
+}
 
     public void AddSpell(Spell spell)
     {
         storedSpells.Enqueue(spell);
-
-        Image spellImage = Instantiate(spellImagePrefab, spellImagesParent).GetComponent<Image>();
-        if (spell.thumbnail != null)
-            spellImage.sprite = spell.thumbnail;
-        else
-            spellImage.sprite = placeHolderSpell;
-        spellImages.Add(spellImage);
-        UpdateUIPositions();
+        UpdateSpellUI();
     }
 
     public void UseSpell()
@@ -29,25 +44,28 @@ public class SpellUI : MonoBehaviour
         if (storedSpells.Count > 0)
         {
             storedSpells.Dequeue();
-            if (spellImages.Count > 0)
-            {
-                Destroy(spellImages[0].gameObject);
-                spellImages.RemoveAt(0);
-                UpdateUIPositions();
-            }
+            UpdateSpellUI();
         }
     }
 
-    private void UpdateUIPositions()
+    private void UpdateSpellUI()
     {
-        float xOffset = 50f;
-        float xPosition = 0f;
-        float lerpSpeed = 10f;
-        foreach (Image spellImage in spellImages)
+        int index = 0;
+        foreach (var spell in storedSpells)
         {
-            Vector3 targetPosition = new Vector3(xPosition, 0f, 0f);
-            spellImage.transform.localPosition = Vector3.Lerp(spellImage.transform.localPosition, targetPosition, lerpSpeed);
-            xPosition += xOffset;
+            if (index < spellImages.Count)
+            {
+                spellImages[index].sprite = spell.thumbnail != null ? spell.thumbnail : placeHolderSpell;
+
+            }
+            index++;
+        }
+
+        // Update or deactivate remaining slots
+        for (int i = index; i < spellImages.Count; i++)
+        {
+            spellImages[i].sprite = placeHolderSpell; 
+            
         }
     }
 }

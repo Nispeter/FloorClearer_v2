@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerSpellCasting : MonoBehaviour
 {
     private const int _maxBallCombination = 3;
-    private const int _maxStoredSpells = 2;
+    private const int _maxStoredSpells = 3;
 
     public BasicAttackFactory basicAttackFactory;
 
@@ -17,10 +17,11 @@ public class PlayerSpellCasting : MonoBehaviour
     private Camera CasterCam;
 
     [Header("Element Orbs")]
-    private List<ElementBall> elementBalls = new List<ElementBall>();
+    public List<ElementBall> elementBalls = new List<ElementBall>();
     public GameObject LightBall;
     public GameObject ArcaneBall;
     public GameObject SpiritBall;
+    public ElementalBallUpdate ElementalBallUI;
 
     private void Start()
     {
@@ -83,6 +84,7 @@ public class PlayerSpellCasting : MonoBehaviour
                 Destroy(ball.gameObject);
             }
             elementBalls.Clear();
+            ElementalBallUI.UpdateElementalUI(elementBalls);
 
         }
         else
@@ -125,6 +127,7 @@ public class PlayerSpellCasting : MonoBehaviour
         ballScript.caster = CasterCam;
         ballScript.ballNumber = 0;
         elementBalls.Insert(0, ballScript);
+        ElementalBallUI.UpdateElementalUI(elementBalls);
     }
 
     private void DeleteElementBall()

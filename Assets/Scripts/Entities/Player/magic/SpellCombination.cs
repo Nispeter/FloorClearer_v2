@@ -67,7 +67,8 @@ public class SpellCombination : MonoBehaviour
         else
         {
             Debug.Log("Spell not found for ID: " + spellID);
-            return null; // Return null if no spell matches the ID
+            knownSpells.TryGetValue(3, out spell);
+            return spell;   
         }
     }
 }
